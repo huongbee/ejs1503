@@ -14,19 +14,34 @@
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Avatar</th>
+                            <th scope="col">Options</th>
                         </tr>
                         </thead>
                         <tbody>
                             <% arraySinger.forEach(singer=>{ %>
                                 
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <th scope="row"><%=singer.id%></th>
+                                <td>
+                                    <a href="<%=prefixLink+singer.link%>">
+                                        <%=singer.name%>
+                                    </a>
+                                </td>
+                                <td>
+                                <img src="<%=prefixImg+singer.avatar%>" alt="">
+                                </td>
+                                <td>
+                                <button style="width:100%" type="button" class="btn btn-warning">
+                                    <a href="">Update</a>
+                                </button>
+                                <br><br>
+                                <button style="width:100%"  type="button" class="btn btn-danger">
+                                    <a href="">Delete</a>
+                                </button>
+                                
+                                </td>
                             </tr>
                             
                             <% })%>
