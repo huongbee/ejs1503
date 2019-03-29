@@ -12,7 +12,6 @@ app.get('/',(req,res)=>{
 app.get('/add-singer',(req,res)=>{
     res.render('add')
 })
-
 app.post('/add-singer',(req,res)=>{
     // 
     // res.render('add')
