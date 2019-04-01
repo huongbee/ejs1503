@@ -43,5 +43,5 @@ app.get('/delete/:id',(req,res)=>{
     arraySinger.splice(index,1)
     return res.redirect('/')
 })
-
-app.listen(5000)
+const port = process.env.PORT || 3000
+app.listen(port)
