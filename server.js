@@ -15,14 +15,16 @@ app.get('/add-singer',(req,res)=>{
 })
 app.post('/add-singer',(req,res)=>{
     const { name, avatar, link } = req.body
-    const singer = new Singer(
-        Math.round(Math.random()*1000),
-        name,
-        avatar,
-        link
-    )
+    const id = Math.round(Math.random()*1000)
+    const singer = new Singer(id,name,avatar,link)
     arraySinger.push(singer)
     return res.redirect('/')
 })
-
+app.get('/update/:id',(req,res)=>{
+    const {id} = req.params
+    //check id exixts in arrSinger
+    const singer = arraySinger.find(singer=>singer.id == id)
+    if(!singer) return res.send({error: 'Singer not found!'})
+    res.render('update',{singer})
+})
 app.listen(3000)
