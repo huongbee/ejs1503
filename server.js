@@ -27,4 +27,21 @@ app.get('/update/:id',(req,res)=>{
     if(!singer) return res.send({error: 'Singer not found!'})
     res.render('update',{singer})
 })
+app.post('/update',(req,res)=>{
+    const { id_singer, name, avatar, link } = req.body
+    const singer = arraySinger.find(singer => singer.id == id_singer)
+    if(!singer) return res.send({error: 'Singer not found!'})
+    singer.name = name
+    singer.avatar = avatar
+    singer.link = link
+    return res.redirect('/')
+})
+app.get('/delete/:id',(req,res)=>{
+    const id = req.params.id
+    const index = arraySinger.findIndex(singer=>singer.id == id)
+    if(index<0) return res.send({error: 'Singer not found!'})
+    arraySinger.splice(index,1)
+    return res.redirect('/')
+})
+
 app.listen(3000)
