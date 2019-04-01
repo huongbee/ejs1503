@@ -45,3 +45,11 @@ app.get('/delete/:id',(req,res)=>{
 })
 const port = process.env.PORT || 3000
 app.listen(port)
+
+/**
+ * - install heroku
+ * - instal git
+ * - add scripts
+ * - change port
+ * 
+ */
